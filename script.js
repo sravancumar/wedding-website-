@@ -361,7 +361,11 @@ document.addEventListener('DOMContentLoaded', () => {
             e.stopPropagation(); // Avoid triggering document autoplay listener
             if (bgMusic.paused) {
                 isMutedByUser = false;
-                initAudio();
+                if (!isAudioInitialized) {
+                    initAudio();
+                } else {
+                    playAudio();
+                }
             } else {
                 isMutedByUser = true;
                 pauseAudio();
