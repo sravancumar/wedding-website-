@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Wedding website of Thumma Naveen Kumar & Anusha Mundada. Join us in celebrating our union on August 15, 2026.">
+    <title>N & A Wedding Invitation</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Alex+Brush&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Canvas layer for falling flower petals -->
+    <canvas id="petals-canvas" class="petals-canvas-layer"></canvas>
+
+    <!-- Autoplay Music Fallback Notification Banner -->
+    <div id="autoplay-banner" class="autoplay-music-banner">
+        <span data-translate="autoplay_msg">🎵 Tap anywhere to start the music</span>
+    </div>
+
+    <!-- Opening Invitation Preloader (Envelope) -->
+    <div id="preloader" class="preloader-overlay">
+        <div class="envelope-wrapper">
+            <div class="envelope-card">
+                <div class="envelope-header">
+                    <span class="env-subtitle" data-translate="env_subtitle">The Celebration of</span>
+                    <h2 class="env-title">Naveen & Anusha</h2>
+                    <div class="env-divider"></div>
+                </div>
+                <div class="envelope-body">
+                    <p class="env-date">August 15, 2026</p>
+                    <p class="env-location" data-translate="env_location">Hyderabad, India</p>
+                </div>
+                <div class="seal-container">
+                    <div class="seal-arrow-wrapper">
+                        <svg class="seal-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <polyline points="19 12 12 19 5 12"></polyline>
+                        </svg>
+                    </div>
+                    <button id="openInvitationBtn" class="wax-seal-btn" aria-label="Open Invitation">
+                        <span class="seal-text">Click to open</span>
+                    </button>
+                    <span class="seal-instruction" data-translate="seal_instruction">Click Seal to Open</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="main-header">
+        <div class="logo">N & A <span class="logo-sub">| Wedding Invitation</span></div>
+        <nav class="nav-menu" id="navMenu">
+            <a href="#hero" class="nav-link active" data-translate="nav_home">Home</a>
+            <a href="#about" class="nav-link" data-translate="nav_union">Our Union</a>
+            <a href="#story" class="nav-link" data-translate="nav_story">Our Story</a>
+            <a href="#events" class="nav-link" data-translate="nav_events">Events</a>
+            <a href="#gallery" class="nav-link" data-translate="nav_moments">Moments</a>
+            <a href="#map-section" class="nav-link" data-translate="nav_venue">Venue</a>
+            <a href="#countdown-sec" class="nav-link" data-translate="nav_countdown">Countdown</a>
+        </nav>
+        <div class="header-actions">
+            <button class="lang-switch-btn" id="langSwitchBtn">తెలుగు</button>
+            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+        <!-- Responsive Background Image to avoid facial cropping on mobile -->
+        <img class="hero-bg-img" src="hero.jpg" alt="Naveen & Anusha" loading="eager">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-tagline" data-translate="hero_tagline">The Celebration</span>
+            <h1 class="hero-names">Thumma Naveen Kumar<br><span class="ampersand">&</span><br>Anusha Mundada</h1>
+            <p class="hero-date">August 15, 2026</p>
+            <a href="#about" class="btn-primary" data-translate="hero_btn">View Invitation</a>
+        </div>
+        <div class="scroll-indicator">
+            <span data-translate="scroll_text">Scroll</span>
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- The Sacred Union Section -->
+    <section class="about-section" id="about">
+        <div class="container text-center">
+            <div class="section-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path
+                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                        fill="var(--color-gold-light)" stroke="var(--color-gold)" />
+                </svg>
+            </div>
+            <h2 class="section-title" data-translate="union_title">The Sacred Union</h2>
+            <div class="divider"></div>
+            <p class="about-text" data-translate="union_text">
+                With the grace of our families, we, <strong>Thumma Naveen Kumar</strong> & <strong>Anusha
+                    Mundada</strong>, invite you to join us as we embark on this beautiful journey of companionship. A
+                celebration of love, commitment, and custom.
+            </p>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="story-section" id="story">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-image-wrapper">
+                    <img src="couple.jpg" alt="Naveen and Anusha" class="story-img">
+                </div>
+                <div class="story-content">
+                    <span class="story-date-tag" data-translate="story_date">August 15</span>
+                    <h2 class="story-title" data-translate="story_title">Beyond the Lyrics</h2>
+                    <p class="story-text" data-translate="story_text">
+                        With the blessings of our families and elders, our paths crossed to embark on a beautiful
+                        journey of togetherness. What began as a traditional arrangement has blossomed into a promise of
+                        a lifetime of love, mutual respect, and companionable joy. We look forward to celebrating this
+                        sacred beginning of our union with you.
+                    </p>
+                    <div class="signatures">
+                        <div class="signature">
+                            <span class="sig-name">Naveen</span>
+                            <span class="sig-role" data-translate="groom_role">Groom</span>
+                        </div>
+                        <div class="signature-divider">&</div>
+                        <div class="signature">
+                            <span class="sig-name">Anusha</span>
+                            <span class="sig-role" data-translate="bride_role">Bride</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events-section" id="events">
+        <div class="container">
+            <h2 class="section-title text-center" data-translate="events_title">The Celebration</h2>
+            <p class="section-subtitle text-center" data-translate="events_subtitle">Join us for the special
+                celebrations of our union</p>
+            <div class="divider"></div>
+
+            <div class="events-grid">
+                <!-- Muhurtham Card -->
+                <div class="event-card">
+                    <div class="event-icon">
+                        <i class="fa-solid fa-ring"></i>
+                    </div>
+                    <h3 class="event-title" data-translate="event_muhurtham_title">Muhurtham</h3>
+                    <div class="event-time" data-translate="event_muhurtham_time">August 15, 2026 • 9:00 AM</div>
+                    <p class="event-desc" data-translate="event_muhurtham_desc">
+                        The auspicious hour of our wedding rituals and traditional tying of the knot.
+                    </p>
+                    <div class="event-venue">
+                        <strong data-translate="muhurtham_venue_name">VPR Convention Centre</strong><br>
+                        <span data-translate="muhurtham_venue_loc">Kukatpally, Hyderabad, India</span>
+                    </div>
+                    <a href="#map-section" class="btn-outline map-trigger-btn" data-venue="muhurtham"
+                        data-translate="view_map">View on Map</a>
+                </div>
+
+                <!-- Reception Card -->
+                <div class="event-card">
+                    <div class="event-icon">
+                        <i class="fa-solid fa-champagne-glasses"></i>
+                    </div>
+                    <h3 class="event-title" data-translate="event_reception_title">Reception</h3>
+                    <div class="event-time" data-translate="event_reception_time">August 15, 2026 • 7:00 PM</div>
+                    <p class="event-desc" data-translate="event_reception_desc">
+                        An evening of joy, celebration, delicious food, and music to commemorate our union.
+                    </p>
+                    <div class="event-venue">
+                        <strong data-translate="reception_venue_name">The Grand Palace Hall</strong><br>
+                        <span data-translate="reception_venue_loc">HITEC City, Hyderabad, India</span>
+                    </div>
+                    <a href="#map-section" class="btn-outline map-trigger-btn" data-venue="reception"
+                        data-translate="view_map">View on Map</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <h2 class="section-title text-center" data-translate="gallery_title">Cherished Moments</h2>
+            <p class="section-subtitle text-center" data-translate="gallery_subtitle">A glimpse into our celebration
+                preparations and memories</p>
+            <div class="divider"></div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item" data-index="0">
+                    <img src="moment1.jpg" alt="Wedding Invitation Detail" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <i class="fa-solid fa-magnifying-glass-plus"></i>
+                        <span data-translate="moment_1">The Invitation</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="1">
+                    <img src="moment2.jpg" alt="Wedding Venue Decor" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <i class="fa-solid fa-magnifying-glass-plus"></i>
+                        <span data-translate="moment_2">The Venue decor</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="2">
+                    <img src="moment3.jpg" alt="Wedding Feast Details" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <i class="fa-solid fa-magnifying-glass-plus"></i>
+                        <span data-translate="moment_3">The Feast</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Venue Map Section -->
+    <section class="map-section" id="map-section">
+        <div class="container">
+            <h2 class="section-title text-center" data-translate="map_section_title">The Venue Maps</h2>
+            <p class="section-subtitle text-center" data-translate="map_section_subtitle">Find your way to our
+                celebrations</p>
+            <div class="divider"></div>
+
+            <div class="map-tabs">
+                <button class="map-tab-btn active" data-map="muhurtham" data-translate="tab_muhurtham">Muhurtham
+                    Venue</button>
+                <button class="map-tab-btn" data-map="reception" data-translate="tab_reception">Reception Venue</button>
+            </div>
+
+            <div class="map-wrapper">
+                <!-- Muhurtham Map Content -->
+                <div id="map-content-muhurtham" class="map-tab-content active">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.2894565773123!2d78.39739467500693!3d17.493774683416278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb90989fffffff%3A0x2db4811a2de94ea9!2sKukatpally%2C%20Hyderabad%2C%20Telangana%2C%20India!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" class="google-map">
+                    </iframe>
+                    <div class="map-card">
+                        <i class="fa-solid fa-location-dot map-card-icon"></i>
+                        <h4 data-translate="muhurtham_card_title">VPR Convention Centre</h4>
+                        <p data-translate="muhurtham_card_address">KPR Colony, Kukatpally, Hyderabad, Telangana 500072
+                        </p>
+                        <a href="https://maps.google.com?q=VPR+Convention+Centre+Kukatpally+Hyderabad" target="_blank"
+                            class="btn-link">
+                            <span data-translate="get_directions">Get Directions</span> <i
+                                class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Reception Map Content -->
+                <div id="map-content-reception" class="map-tab-content">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.1824472097495!2d78.3804863750058!3d17.452416983446055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93e27fffffff%3A0x6b63c87042a98f1!2sHITEC%20City%2C%20Hyderabad%2C%20Telangana%2C%20India!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" class="google-map">
+                    </iframe>
+                    <div class="map-card">
+                        <i class="fa-solid fa-location-dot map-card-icon"></i>
+                        <h4 data-translate="reception_card_title">The Grand Palace Hall</h4>
+                        <p data-translate="reception_card_address">HITEC City Main Road, Cyberabad, Hyderabad, Telangana
+                            500081</p>
+                        <a href="https://maps.google.com?q=The+Grand+Palace+Hall+HITEC+City+Hyderabad" target="_blank"
+                            class="btn-link">
+                            <span data-translate="get_directions">Get Directions</span> <i
+                                class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countdown Section -->
+    <section class="countdown-section" id="countdown-sec">
+        <div class="container">
+            <div class="countdown-container-centered">
+                <!-- Countdown -->
+                <div class="countdown-wrapper">
+                    <h3 data-translate="countdown_title">Save Our Date</h3>
+                    <div class="countdown-divider"></div>
+                    <div id="countdown" class="countdown-timer">
+                        <div class="countdown-item">
+                            <span id="days" class="time-num">00</span>
+                            <span class="time-label" data-translate="label_days">Days</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span id="hours" class="time-num">00</span>
+                            <span class="time-label" data-translate="label_hours">Hours</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span id="minutes" class="time-num">00</span>
+                            <span class="time-label" data-translate="label_minutes">Mins</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span id="seconds" class="time-num">00</span>
+                            <span class="time-label" data-translate="label_seconds">Secs</span>
+                        </div>
+                    </div>
+                    <div class="download-invitation-container">
+                        <a href="invitation.mp4" download="wedding-invitation-video.mp4"
+                            class="btn-download-invitation">
+                            <i class="fa-solid fa-file-arrow-down"></i> <span data-translate="download_btn">Download
+                                Wedding Invitation (Video)</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <h2 class="footer-names">Naveen & Anusha</h2>
+        <p class="footer-tag">#NaveenWedsAnusha</p>
+        <p class="footer-copyright">
+            August 15, 2026 • Made with <i class="fa-solid fa-heart footer-heart"></i> for Naveen & Anusha.
+        </p>
+        <a href="#hero" class="back-to-top" aria-label="Back to top">
+            <i class="fa-solid fa-arrow-up"></i>
+        </a>
+    </footer>
+
+    <!-- Lightbox Modal for Gallery -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" id="lightboxClose">&times;</span>
+        <button class="lightbox-prev" id="lightboxPrev" aria-label="Previous image">&#10094;</button>
+        <div class="lightbox-content">
+            <img id="lightboxImg" src="" alt="Lightbox image">
+            <div id="lightboxCaption" class="lightbox-caption"></div>
+        </div>
+        <button class="lightbox-next" id="lightboxNext" aria-label="Next image">&#10095;</button>
+    </div>
+
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="bg-music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Floating Music Controls -->
+    <button class="music-control-btn" id="musicControlBtn" aria-label="Toggle Music">
+        <div class="music-icon-wrapper">
+            <i class="fa-solid fa-music music-icon"></i>
+            <i class="fa-solid fa-pause pause-icon" style="display: none;"></i>
+        </div>
+        <div class="music-waves" id="musicWaves">
+            <span class="stroke"></span>
+            <span class="stroke"></span>
+            <span class="stroke"></span>
+            <span class="stroke"></span>
+        </div>
+    </button>
+
+    <!-- JS script -->
+    <script src="script.js"></script>
+</body>
+
+</html>

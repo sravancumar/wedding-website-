@@ -1,0 +1,5 @@
+# IDE / VS Code
+.vscode/
+
+# Logs
+*.log
