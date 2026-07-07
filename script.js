@@ -19,20 +19,20 @@ document.addEventListener('DOMContentLoaded', () => {
             union_title: "The Sacred Union",
             union_text: "With the grace of our families, we, <strong>Thumma Naveen Kumar</strong> & <strong>Anusha Mundada</strong>, invite you to join us as we embark on this beautiful journey of companionship. A celebration of love, commitment, and custom.",
             story_title: "Beyond the Lyrics",
-            story_date: "August 15",
+            story_date: "August 26",
             story_text: "With the blessings of our families and elders, our paths crossed to embark on a beautiful journey of togetherness. What began as a traditional arrangement has blossomed into a promise of a lifetime of love, mutual respect, and companionable joy. We look forward to celebrating this sacred beginning of our union with you.",
             groom_role: "Groom",
             bride_role: "Bride",
             events_title: "The Celebration",
             events_subtitle: "Join us for the special celebrations of our union",
             event_muhurtham_title: "Muhurtham",
-            event_muhurtham_time: "August 15, 2026 • 9:00 AM",
+            event_muhurtham_time: "August 26, 2026 • 11:00 AM",
             event_muhurtham_desc: "The auspicious hour of our wedding rituals and traditional tying of the knot.",
             muhurtham_venue_name: "VPR Convention Centre",
             muhurtham_venue_loc: "Kukatpally, Hyderabad, India",
             view_map: "View on Map",
             event_reception_title: "Reception",
-            event_reception_time: "August 15, 2026 • 7:00 PM",
+            event_reception_time: "August 27, 2026 • 7:00 PM",
             event_reception_desc: "An evening of joy, celebration, delicious food, and music to commemorate our union.",
             reception_venue_name: "The Grand Palace Hall",
             reception_venue_loc: "HITEC City, Hyderabad, India",
@@ -55,7 +55,8 @@ document.addEventListener('DOMContentLoaded', () => {
             label_hours: "Hours",
             label_minutes: "Mins",
             label_seconds: "Secs",
-            download_btn: "Download Wedding Invitation (Video)",
+            btn_play_invitation: "Play Invitation",
+            btn_download_invitation: "Download Invitation",
             seal_prompt: "✨ Tap the Seal to Open Your Invitation ✨",
             autoplay_msg: "🎵 Tap anywhere to start the music"
         },
@@ -76,20 +77,20 @@ document.addEventListener('DOMContentLoaded', () => {
             union_title: "పవిత్ర బంధం",
             union_text: "మా కుటుంబాల ఆశీస్సులతో, మేము (తుమ్మ నవీన్ కుమార్ & అనుష ముందడ) మా నూతన జీవిత ప్రయాణాన్ని ప్రారంభిస్తున్నాము. ఈ పవిత్ర బంధంలో భాగస్వాములు కావాల్సిందిగా మిమ్మల్ని సగౌరవంగా ఆహ్వానిస్తున్నాము.",
             story_title: "మా పరిచయం",
-            story_date: "ఆగస్టు 15",
+            story_date: "ఆగస్టు 26",
             story_text: "మా పెద్దలు మరియు కుటుంబ సభ్యుల సమక్షంలో నిశ్చయించబడిన ఈ సంబంధం, పరస్పర గౌరవం, ప్రేమ మరియు ఆనందంతో నిండిన జీవితకాల బంధంగా రూపాంతరం చెందింది. ఈ పవిత్ర బంధాన్ని మీతో పంచుకోవడానికి మేము సంతోషిస్తున్నాము.",
             groom_role: "వరుడు",
             bride_role: "వధువు",
             events_title: "వివాహ వేడుకలు",
             events_subtitle: "మా వివాహ శుభకార్య వేడుకల్లో పాల్గొని మమ్మల్ని ఆశీర్వదించండి",
             event_muhurtham_title: "ముహూర్తం",
-            event_muhurtham_time: "ఆగస్టు 15, 2026 • ఉదయం 9:00 గంటలకు",
+            event_muhurtham_time: "ఆగస్టు 26, 2026 • ఉదయం 11:00 గంటలకు",
             event_muhurtham_desc: "సాంప్రదాయ పద్ధతిలో జరిగే మా కళ్యాణ మహోత్సవం మరియు మంగళసూత్ర ధారణ వేడుక.",
             muhurtham_venue_name: "వీపీఆర్ కన్వెన్షన్ సెంటర్",
             muhurtham_venue_loc: "కూకట్‌పల్లి, హైదరాబాద్, ఇండియా",
             view_map: "మ్యాప్ చూడండి",
             event_reception_title: "రిసెప్షన్",
-            event_reception_time: "ఆగస్టు 15, 2026 • సాయంత్రం 7:00 గంటలకు",
+            event_reception_time: "ఆగస్టు 27, 2026 • సాయంత్రం 7:00 గంటలకు",
             event_reception_desc: "స్నేహితులు, బంధుమిత్రులతో కలిసి విందు, వినోదాలతో కూడిన వివాహ విందు వేడుక.",
             reception_venue_name: "ది గ్రాండ్ ప్యాలెస్ హాల్",
             reception_venue_loc: "హైటెక్ సిటీ, హైదరాబాద్, ఇండియా",
@@ -112,7 +113,8 @@ document.addEventListener('DOMContentLoaded', () => {
             label_hours: "గంటలు",
             label_minutes: "నిమిషాలు",
             label_seconds: "సెకన్లు",
-            download_btn: "వివాహ పత్రికను డౌన్‌లోడ్ చేసుకోండి (వీడియో)",
+            btn_play_invitation: "వీడియో ఆహ్వానం",
+            btn_download_invitation: "పత్రిక డౌన్‌లోడ్",
             seal_prompt: "✨ తెరిచేందుకు ముద్రపై క్లిక్ చేయండి ✨",
             autoplay_msg: "🎵 సంగీతాన్ని వినడానికి ఎక్కడైనా క్లిక్ చేయండి"
         }
@@ -214,11 +216,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 0. Opening Preloader (Envelope) Logic ---
     const preloader = document.getElementById('preloader');
     const openInvitationBtn = document.getElementById('openInvitationBtn');
-    
+
     if (preloader && openInvitationBtn) {
         // Lock body scrolling initially
         document.body.classList.add('preloader-active');
-        
+
         openInvitationBtn.addEventListener('click', (e) => {
             // 1. Mobile Vibration Feedback (Haptic)
             if (navigator.vibrate) {
@@ -231,14 +233,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const rect = openInvitationBtn.getBoundingClientRect();
             const size = Math.max(rect.width, rect.height);
             ripple.style.width = ripple.style.height = `${size}px`;
-            
+
             // Mouse/Touch click position relative to button
             const x = e.clientX - rect.left - size / 2;
             const y = e.clientY - rect.top - size / 2;
             ripple.style.left = `${x}px`;
             ripple.style.top = `${y}px`;
             openInvitationBtn.appendChild(ripple);
-            
+
             // Remove ripple element after animation finishes
             setTimeout(() => {
                 ripple.remove();
@@ -246,12 +248,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // 3. Fade out preloader
             preloader.classList.add('fade-out');
-            
+
             // 4. Ensure music plays (if blocked, try playing immediately here on button gesture)
             if (!isAudioInitialized && !isMutedByUser) {
                 initAudio();
             }
-            
+
             // Unlock body scrolling after transition
             setTimeout(() => {
                 document.body.classList.remove('preloader-active');
@@ -313,8 +315,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- 4. Countdown Timer ---
-    // Wedding Date: August 15, 2026, 09:00:00 AM
-    const targetDateStr = '2026-08-15T09:00:00';
+    // Wedding Date: August 26, 2026, 11:00:00 AM
+    const targetDateStr = '2026-08-26T11:00:00';
     const targetDate = new Date(targetDateStr).getTime();
 
     const countdownDays = document.getElementById('days');
@@ -332,7 +334,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (countdownHours) countdownHours.textContent = '00';
             if (countdownMinutes) countdownMinutes.textContent = '00';
             if (countdownSeconds) countdownSeconds.textContent = '00';
-            
+
             const countdownTitle = document.querySelector('.countdown-wrapper h3');
             if (countdownTitle) countdownTitle.textContent = 'The Celebration Has Begun!';
             return;
@@ -497,6 +499,65 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- 9. Video Modal Player ---
+    const playInvitationBtn = document.getElementById('playInvitationBtn');
+    const videoModal = document.getElementById('videoModal');
+    const videoModalClose = document.getElementById('videoModalClose');
+    const modalVideo = document.getElementById('modalVideo');
+    let musicWasPlayingBeforeVideo = false;
+
+    function openVideoModal() {
+        if (!videoModal || !modalVideo) return;
+        
+        // Pause background music if playing
+        if (bgMusic && !bgMusic.paused) {
+            musicWasPlayingBeforeVideo = true;
+            pauseAudio();
+        } else {
+            musicWasPlayingBeforeVideo = false;
+        }
+
+        videoModal.classList.add('active');
+        modalVideo.currentTime = 0;
+        modalVideo.play().catch(err => console.log('Video play failed or interrupted', err));
+        document.body.style.overflow = 'hidden'; // Lock page scroll
+    }
+
+    function closeVideoModal() {
+        if (!videoModal || !modalVideo) return;
+        
+        videoModal.classList.remove('active');
+        modalVideo.pause();
+        document.body.style.overflow = ''; // Unlock page scroll
+
+        // Resume background music if it was playing
+        if (bgMusic && musicWasPlayingBeforeVideo) {
+            playAudio();
+        }
+    }
+
+    if (playInvitationBtn) {
+        playInvitationBtn.addEventListener('click', openVideoModal);
+    }
+
+    if (videoModalClose) {
+        videoModalClose.addEventListener('click', closeVideoModal);
+    }
+
+    if (videoModal) {
+        videoModal.addEventListener('click', (e) => {
+            if (e.target === videoModal) {
+                closeVideoModal();
+            }
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (videoModal && videoModal.classList.contains('active')) {
+            if (e.key === 'Escape') closeVideoModal();
+        }
+    });
+
     // --- 8. Falling Flower Petals Canvas Animation ---
     const canvas = document.getElementById('petals-canvas');
     if (canvas) {
@@ -555,13 +616,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 ctx.save();
                 ctx.translate(this.x, this.y);
                 ctx.rotate((this.rotation * Math.PI) / 180);
-                
+
                 // Draw petal path (oval leaf shape with pointed tip)
                 ctx.beginPath();
                 ctx.moveTo(0, 0);
                 ctx.quadraticCurveTo(this.size * 0.5, -this.size * 0.5, this.size, 0);
                 ctx.quadraticCurveTo(this.size * 0.5, this.size * 0.5, 0, 0);
-                
+
                 ctx.fillStyle = this.colorPrefix + this.opacity + ')';
                 ctx.fill();
                 ctx.restore();
