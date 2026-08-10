@@ -34,21 +34,25 @@ document.addEventListener('DOMContentLoaded', () => {
             event_reception_title: "Reception",
             event_reception_time: "August 27, 2026 • 7:00 PM",
             event_reception_desc: "An evening of joy, celebration, delicious food, and music to commemorate our union.",
-            reception_venue_name: "The Grand Palace Hall",
-            reception_venue_loc: "HITEC City, Hyderabad, India",
+            reception_venue_name: "Mekala Venkatesh Function Hall",
+            reception_venue_loc: "Sy.no.69/71, Bahadurpally, Hyderabad, Telangana 500043",
             gallery_title: "Cherished Moments",
             gallery_subtitle: "A glimpse into our celebration preparations and memories",
             moment_1: "The Invitation",
             moment_2: "The Venue decor",
             moment_3: "The Feast",
+            moment_4: "Sweet Togetherness",
+            moment_5: "A Gentle Walk",
+            moment_6: "Shared Smiles",
+            moment_7: "Beautiful Moments",
             map_section_title: "The Venue Maps",
             map_section_subtitle: "Find your way to our celebrations",
             tab_muhurtham: "Muhurtham Venue",
             tab_reception: "Reception Venue",
             muhurtham_card_title: "VPR Convention Centre",
             muhurtham_card_address: "KPR Colony, Kukatpally, Hyderabad, Telangana 500072",
-            reception_card_title: "The Grand Palace Hall",
-            reception_card_address: "HITEC City Main Road, Cyberabad, Hyderabad, Telangana 500081",
+            reception_card_title: "Mekala Venkatesh Function Hall",
+            reception_card_address: "Sy.no.69/71, Bahadurpally, Hyderabad, Telangana 500043",
             get_directions: "Get Directions",
             countdown_title: "Save Our Date",
             label_days: "Days",
@@ -92,21 +96,25 @@ document.addEventListener('DOMContentLoaded', () => {
             event_reception_title: "రిసెప్షన్",
             event_reception_time: "ఆగస్టు 27, 2026 • సాయంత్రం 7:00 గంటలకు",
             event_reception_desc: "స్నేహితులు, బంధుమిత్రులతో కలిసి విందు, వినోదాలతో కూడిన వివాహ విందు వేడుక.",
-            reception_venue_name: "ది గ్రాండ్ ప్యాలెస్ హాల్",
-            reception_venue_loc: "హైటెక్ సిటీ, హైదరాబాద్, ఇండియా",
+            reception_venue_name: "మేకల వెంకటేష్ ఫంక్షన్ హాల్",
+            reception_venue_loc: "సర్వే నం. 69/71, బహదూర్‌పల్లి, హైదరాబాద్, తెలంగాణ 500043",
             gallery_title: "మధుర జ్ఞాపకాలు",
             gallery_subtitle: "మా వివాహ వేడుకల సన్నాహాలు మరియు కొన్ని చిత్రాలు",
             moment_1: "వివాహ పత్రిక",
             moment_2: "మండప అలంకరణ",
             moment_3: "విందు భోజనం",
+            moment_4: "మధుర క్షణాలు",
+            moment_5: "తోడుగా అడుగులు",
+            moment_6: "చిరునవ్వుల చిందులు",
+            moment_7: "ఎల్లప్పుడూ తోడుగా",
             map_section_title: "కళ్యాణ వేదికల మ్యాప్స్",
             map_section_subtitle: "వేడుకల చిరునామా మరియు మ్యాప్",
             tab_muhurtham: "ముహూర్తం వేదిక",
             tab_reception: "రిసెప్షన్ వేదిక",
             muhurtham_card_title: "వీపీఆర్ కన్వెన్షన్ సెంటర్",
             muhurtham_card_address: "కేపీఆర్ కాలనీ, కూకట్‌పల్లి, హైదరాబాద్, తెలంగాణ 500072",
-            reception_card_title: "ది గ్రాండ్ ప్యాలెస్ హాల్",
-            reception_card_address: "హైటెక్ సిటీ మెయిన్ రోడ్, సైబరాబాద్, హైదరాబాద్, తెలంగాణ 500081",
+            reception_card_title: "మేకల వెంకటేష్ ఫంక్షన్ హాల్",
+            reception_card_address: "సర్వే నం. 69/71, బహదూర్‌పల్లి, హైదరాబాద్, తెలంగాణ 500043",
             get_directions: "దారి తెలుసుకోండి",
             countdown_title: "శుభ ముహూర్త సమయం",
             label_days: "రోజులు",
@@ -390,11 +398,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Build the images list from HTML grid
     galleryItems.forEach((item, index) => {
         const img = item.querySelector('img');
-        const caption = item.querySelector('.gallery-overlay span').textContent;
+        const span = item.querySelector('.gallery-overlay span');
+        const translateKey = span ? span.getAttribute('data-translate') : '';
+        const defaultCaption = span ? span.textContent : '';
         imagesList.push({
             src: img.getAttribute('src'),
             alt: img.getAttribute('alt'),
-            caption: caption
+            translateKey: translateKey,
+            defaultCaption: defaultCaption
         });
 
         item.addEventListener('click', () => {
@@ -405,10 +416,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function openLightbox() {
         if (!lightbox) return;
-        const currentData = imagesList[currentImgIndex];
-        lightboxImg.setAttribute('src', currentData.src);
-        lightboxImg.setAttribute('alt', currentData.alt);
-        lightboxCaption.textContent = currentData.caption;
+        updateLightboxContent();
         lightbox.classList.add('active');
         document.body.style.overflow = 'hidden'; // Lock page scroll
     }
@@ -433,7 +441,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentData = imagesList[currentImgIndex];
         lightboxImg.setAttribute('src', currentData.src);
         lightboxImg.setAttribute('alt', currentData.alt);
-        lightboxCaption.textContent = currentData.caption;
+        
+        let caption = currentData.defaultCaption;
+        if (currentData.translateKey && translations[currentLanguage] && translations[currentLanguage][currentData.translateKey]) {
+            caption = translations[currentLanguage][currentData.translateKey];
+        }
+        lightboxCaption.innerHTML = caption;
     }
 
     if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
