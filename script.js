@@ -59,7 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
             label_hours: "Hours",
             label_minutes: "Mins",
             label_seconds: "Secs",
-            btn_play_invitation: "Play Invitation",
             btn_download_invitation: "Download Invitation",
             seal_prompt: "✨ Tap the Seal to Open Your Invitation ✨",
             autoplay_msg: "🎵 Tap anywhere to start the music"
@@ -121,7 +120,6 @@ document.addEventListener('DOMContentLoaded', () => {
             label_hours: "గంటలు",
             label_minutes: "నిమిషాలు",
             label_seconds: "సెకన్లు",
-            btn_play_invitation: "వీడియో ఆహ్వానం",
             btn_download_invitation: "పత్రిక డౌన్‌లోడ్",
             seal_prompt: "✨ తెరిచేందుకు ముద్రపై క్లిక్ చేయండి ✨",
             autoplay_msg: "🎵 సంగీతాన్ని వినడానికి ఎక్కడైనా క్లిక్ చేయండి"
@@ -512,64 +510,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 9. Video Modal Player ---
-    const playInvitationBtn = document.getElementById('playInvitationBtn');
-    const videoModal = document.getElementById('videoModal');
-    const videoModalClose = document.getElementById('videoModalClose');
-    const modalVideo = document.getElementById('modalVideo');
-    let musicWasPlayingBeforeVideo = false;
-
-    function openVideoModal() {
-        if (!videoModal || !modalVideo) return;
-        
-        // Pause background music if playing
-        if (bgMusic && !bgMusic.paused) {
-            musicWasPlayingBeforeVideo = true;
-            pauseAudio();
-        } else {
-            musicWasPlayingBeforeVideo = false;
-        }
-
-        videoModal.classList.add('active');
-        modalVideo.currentTime = 0;
-        modalVideo.play().catch(err => console.log('Video play failed or interrupted', err));
-        document.body.style.overflow = 'hidden'; // Lock page scroll
-    }
-
-    function closeVideoModal() {
-        if (!videoModal || !modalVideo) return;
-        
-        videoModal.classList.remove('active');
-        modalVideo.pause();
-        document.body.style.overflow = ''; // Unlock page scroll
-
-        // Resume background music if it was playing
-        if (bgMusic && musicWasPlayingBeforeVideo) {
-            playAudio();
-        }
-    }
-
-    if (playInvitationBtn) {
-        playInvitationBtn.addEventListener('click', openVideoModal);
-    }
-
-    if (videoModalClose) {
-        videoModalClose.addEventListener('click', closeVideoModal);
-    }
-
-    if (videoModal) {
-        videoModal.addEventListener('click', (e) => {
-            if (e.target === videoModal) {
-                closeVideoModal();
-            }
-        });
-    }
-
-    document.addEventListener('keydown', (e) => {
-        if (videoModal && videoModal.classList.contains('active')) {
-            if (e.key === 'Escape') closeVideoModal();
-        }
-    });
 
     // --- 8. Falling Flower Petals Canvas Animation ---
     const canvas = document.getElementById('petals-canvas');
