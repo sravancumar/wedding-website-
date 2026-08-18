@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
             events_title: "The Celebration",
             events_subtitle: "Join us for the special celebrations of our union",
             event_muhurtham_title: "Muhurtham",
-            event_muhurtham_time: "August 26, 2026 • 11:00 AM",
+            event_muhurtham_time: "August 26, 2026 • 11:24 AM",
             event_muhurtham_desc: "The auspicious hour of our wedding rituals and traditional tying of the knot.",
             muhurtham_venue_name: "VPR Convention Centre",
             muhurtham_venue_loc: "Kukatpally, Hyderabad, India",
@@ -60,8 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
             label_minutes: "Mins",
             label_seconds: "Secs",
             btn_download_invitation: "Download Invitation",
-            seal_prompt: "✨ Tap the Seal to Open Your Invitation ✨",
-            autoplay_msg: "🎵 Tap anywhere to start the music"
+            seal_prompt: "✨ Tap the Seal to Open Your Invitation ✨"
         },
         te: {
             env_subtitle: "శుభకార్య మహోత్సవం",
@@ -87,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
             events_title: "వివాహ వేడుకలు",
             events_subtitle: "మా వివాహ శుభకార్య వేడుకల్లో పాల్గొని మమ్మల్ని ఆశీర్వదించండి",
             event_muhurtham_title: "ముహూర్తం",
-            event_muhurtham_time: "ఆగస్టు 26, 2026 • ఉదయం 11:00 గంటలకు",
+            event_muhurtham_time: "ఆగస్టు 26, 2026 • ఉదయం 11:24 గంటలకు",
             event_muhurtham_desc: "సాంప్రదాయ పద్ధతిలో జరిగే మా కళ్యాణ మహోత్సవం మరియు మంగళసూత్ర ధారణ వేడుక.",
             muhurtham_venue_name: "వీపీఆర్ కన్వెన్షన్ సెంటర్",
             muhurtham_venue_loc: "కూకట్‌పల్లి, హైదరాబాద్, ఇండియా",
@@ -121,8 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
             label_minutes: "నిమిషాలు",
             label_seconds: "సెకన్లు",
             btn_download_invitation: "పత్రిక డౌన్‌లోడ్",
-            seal_prompt: "✨ తెరిచేందుకు ముద్రపై క్లిక్ చేయండి ✨",
-            autoplay_msg: "🎵 సంగీతాన్ని వినడానికి ఎక్కడైనా క్లిక్ చేయండి"
+            seal_prompt: "✨ తెరిచేందుకు ముద్రపై క్లిక్ చేయండి ✨"
         }
     };
 
@@ -153,71 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Audio Elements & Core Logic ---
-    const bgMusic = document.getElementById('bgMusic');
-    const musicControlBtn = document.getElementById('musicControlBtn');
-    const autoplayBanner = document.getElementById('autoplay-banner');
-    let isMutedByUser = false;
-    let isAudioInitialized = false;
 
-    function initAudio() {
-        if (!bgMusic || isAudioInitialized) return;
-        isAudioInitialized = true;
-        bgMusic.currentTime = 5;
-        playAudio();
-    }
-
-    function playAudio() {
-        if (!bgMusic) return;
-        bgMusic.play()
-            .then(() => {
-                if (musicControlBtn) musicControlBtn.classList.add('playing');
-                hideAutoplayBanner();
-            })
-            .catch(error => {
-                console.log('Audio autoplay blocked by browser. Showing banner.', error);
-                showAutoplayBanner();
-                isAudioInitialized = false; // Allow retry on first user interaction
-            });
-    }
-
-    function pauseAudio() {
-        if (!bgMusic) return;
-        bgMusic.pause();
-        if (musicControlBtn) musicControlBtn.classList.remove('playing');
-    }
-
-    function showAutoplayBanner() {
-        if (autoplayBanner && !isMutedByUser) {
-            autoplayBanner.classList.add('active');
-        }
-    }
-
-    function hideAutoplayBanner() {
-        if (autoplayBanner) {
-            autoplayBanner.classList.remove('active');
-        }
-    }
-
-    // Try immediate autoplay on page load
-    setTimeout(() => {
-        initAudio();
-    }, 100);
-
-    // User gesture listener to bypass browser restrictions
-    const userGestures = ['click', 'touchstart', 'scroll', 'keydown'];
-    function handleFirstGesture() {
-        if (!isAudioInitialized && !isMutedByUser) {
-            initAudio();
-        }
-        // Cleanup listeners
-        userGestures.forEach(gesture => {
-            document.removeEventListener(gesture, handleFirstGesture);
-        });
-    }
-    userGestures.forEach(gesture => {
-        document.addEventListener(gesture, handleFirstGesture, { passive: true });
-    });
 
     // --- 0. Opening Preloader (Envelope) Logic ---
     const preloader = document.getElementById('preloader');
@@ -363,23 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
-    // --- 5. Background Music Player Button Toggle ---
-    if (bgMusic && musicControlBtn) {
-        musicControlBtn.addEventListener('click', (e) => {
-            e.stopPropagation(); // Avoid triggering document autoplay listener
-            if (bgMusic.paused) {
-                isMutedByUser = false;
-                if (!isAudioInitialized) {
-                    initAudio();
-                } else {
-                    playAudio();
-                }
-            } else {
-                isMutedByUser = true;
-                pauseAudio();
-            }
-        });
-    }
+
 
     // --- 6. Lightbox Gallery ---
     const galleryItems = document.querySelectorAll('.gallery-item');
